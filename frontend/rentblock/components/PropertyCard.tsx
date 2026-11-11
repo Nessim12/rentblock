@@ -1,0 +1,7 @@
+import Link from "next/link";
+import type { Property } from "@/lib/types";
+import { StatusBadge } from "./StatusBadge";
+
+export default function PropertyCard({ property }: { property: Property }) {
+  return <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><div className="relative h-52 overflow-hidden bg-slate-100"><img src={property.image} alt={property.title} className="h-full w-full object-cover transition duration-500 hover:scale-105" /><div className="absolute left-4 top-4"><StatusBadge status={property.status} /></div></div><div className="p-5"><div className="flex items-start justify-between gap-3"><div><h3 className="font-bold text-slate-900">{property.title}</h3><p className="mt-1 text-sm text-slate-500">{property.location}</p></div><span className="text-lg font-bold text-slate-900">${property.rent}<span className="text-xs font-medium text-slate-400">/mo</span></span></div><div className="mt-5 flex gap-4 border-y border-slate-100 py-3 text-xs text-slate-500"><span>{property.bedrooms} bed</span><span>{property.bathrooms} bath</span><span>{property.area} m²</span></div><div className="mt-4 flex items-center justify-between"><span className="text-xs text-slate-500">Deposit ${property.deposit.toLocaleString()}</span><Link href={`/properties/${property.id}`} className="text-sm font-bold text-blue-700 hover:text-blue-900">View details →</Link></div></div></article>;
+}

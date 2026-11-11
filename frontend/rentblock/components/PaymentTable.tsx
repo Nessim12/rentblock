@@ -1,0 +1,6 @@
+import type { Payment } from "@/lib/types";
+import { PaymentStatusBadge } from "./StatusBadge";
+
+export default function PaymentTable({ payments }: { payments: Payment[] }) {
+  return <div className="overflow-x-auto"><table className="w-full min-w-[620px] text-left text-sm"><thead className="border-b border-slate-200 text-xs uppercase tracking-wide text-slate-400"><tr><th className="px-5 py-3 font-semibold">Payment</th><th className="px-5 py-3 font-semibold">Date</th><th className="px-5 py-3 font-semibold">Amount</th><th className="px-5 py-3 font-semibold">Status</th><th className="px-5 py-3 font-semibold">Reference</th></tr></thead><tbody className="divide-y divide-slate-100">{payments.map((payment) => <tr key={payment.id}><td className="px-5 py-4 font-semibold text-slate-800">{payment.label}<span className="block text-xs font-normal text-slate-400">{payment.type}</span></td><td className="px-5 py-4 text-slate-500">{new Date(payment.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</td><td className="px-5 py-4 font-semibold text-slate-800">${payment.amount.toLocaleString()} USDC</td><td className="px-5 py-4"><PaymentStatusBadge status={payment.status} /></td><td className="px-5 py-4 font-mono text-xs text-slate-400">{payment.reference}</td></tr>)}</tbody></table></div>;
+}

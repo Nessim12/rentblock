@@ -1,0 +1,4 @@
+export function WalletStatus() { return <div><p className="text-xs text-slate-500">Wallet</p><p className="mt-1 text-sm font-semibold text-slate-900">Not connected</p></div>; }
+export function NetworkStatus() { return <div><p className="text-xs text-slate-500">Network</p><p className="mt-1 text-sm font-semibold text-slate-900">Test network</p></div>; }
+export function TransactionStatus({ status = "Confirmed" }: { status?: "Pending" | "Confirmed" }) { return <div><p className="text-xs text-slate-500">Transaction</p><p className={`mt-1 text-sm font-semibold ${status === "Confirmed" ? "text-emerald-600" : "text-amber-600"}`}>{status}</p></div>; }
+export function ContractStatus() { return <div><p className="text-xs text-slate-500">Agreement record</p><p className="mt-1 text-sm font-semibold text-slate-900">Demo mode</p></div>; }

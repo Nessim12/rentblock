@@ -1,0 +1,6 @@
+import Link from "next/link";
+import { Logo } from "./Navbar";
+
+export default function Footer() {
+  return <footer className="border-t border-slate-200 bg-white"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 md:grid-cols-[2fr_1fr_1fr_1fr] lg:px-8"><div><Logo /><p className="mt-4 max-w-xs text-sm leading-6 text-slate-500">A clearer, more trusted way to rent. Built for the future of real estate.</p></div><div><h3 className="text-sm font-bold text-slate-900">Platform</h3><div className="mt-4 grid gap-3 text-sm text-slate-500"><Link href="/properties">Browse homes</Link><Link href="/dashboard/tenant">Tenant dashboard</Link><Link href="/dashboard/landlord">Landlord dashboard</Link></div></div><div><h3 className="text-sm font-bold text-slate-900">Company</h3><div className="mt-4 grid gap-3 text-sm text-slate-500"><Link href="/login">Log in</Link><Link href="/register">Create account</Link><span>About RentBlock</span></div></div><div><h3 className="text-sm font-bold text-slate-900">Trust</h3><p className="mt-4 text-sm leading-6 text-slate-500">Transparent records, secure agreements, and human support at every step.</p></div></div><div className="border-t border-slate-100 px-5 py-5 text-center text-xs text-slate-400">© 2026 RentBlock. Demo platform with mock data.</div></footer>;
+}
